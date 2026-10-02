@@ -13,6 +13,7 @@ built-in's list keys (`ctrl+up`/`ctrl+down`, `opt+up`/`opt+down`), and
 through Buttons that declare the engine's own actions. The pane refreshes
 as Claude edits and runs shell commands, and while it is open it polls
 the repository's HEAD so a commit or checkout made elsewhere shows too.
+Toasts raised by other mods are held while the pane is open, and appear once it closes.
 The main loop's first successful edit of a session opens the pane by
 itself, as the built-in panel opens on its first checkpoint: where the
 layout docks it beside the transcript (the fullscreen layout, which each
