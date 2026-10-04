@@ -5,6 +5,7 @@ on:
   issue_comment:
     types: [created]
 
+
 jobs:
   triage-issue:
     # This job calls Claude, so it runs on GitHub's egress-firewall runner, which
@@ -23,12 +24,14 @@ jobs:
       # Required to mint the OIDC token exchanged for a Claude API access token (Workload Identity Federation)
       id-token: write
 
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+
       - name: Run Claude Code for Issue Triage
-        timeout-minutes: 5
+        timeout-minutes: 15
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
