@@ -437,6 +437,8 @@ def extract_content_from_input(tool_name, tool_input):
         if edits:
             return " ".join(edit.get("new_string", "") for edit in edits)
         return ""
+    elif tool_name == "NotebookEdit":
+        return tool_input.get("new_source", "") or ""
     return ""
 
 # =====================================================================
@@ -758,6 +760,8 @@ def _push_section(bash_output):
     """
     if not bash_output:
         return ""
+    elif tool_name == "NotebookEdit":
+        return tool_input.get("new_source", "") or ""
     # Match line-anchored "To " — look for "\nTo " or "To " at start-of-string.
     idx = bash_output.rfind("\nTo ")
     if idx >= 0:
