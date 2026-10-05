@@ -760,9 +760,7 @@ def _push_section(bash_output):
     """
     if not bash_output:
         return ""
-    elif tool_name == "NotebookEdit":
-        return tool_input.get("new_source", "") or ""
-    # Match line-anchored "To " — look for "\nTo " or "To " at start-of-string.
+                # Match line-anchored "To " — look for "\nTo " or "To " at start-of-string.
     idx = bash_output.rfind("\nTo ")
     if idx >= 0:
         section = bash_output[idx:]
